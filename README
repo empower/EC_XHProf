@@ -1,0 +1,7 @@
+EC_XHProf is a simple class for managing XHProf runs and storing them according
+to virtual host ServerNames.  You can also clear out runs.  See the examples
+directory for examples.
+
+Cheers,
+
+Bill
