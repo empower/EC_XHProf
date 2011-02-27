@@ -1,7 +1,7 @@
 <?php
 
 require_once 'EC/XHProf.php';
-require_once 'PHPUnit/Framework.php';
+
 
 class EC_XHProfTest extends PHPUnit_Framework_TestCase
 {
@@ -24,13 +24,17 @@ class EC_XHProfTest extends PHPUnit_Framework_TestCase
     {
         $file1 = '/tmp/xhprof_unit_test/RUN1.' . $this->_nameSpace;
         $file2 = '/tmp/xhprof_unit_test/RUN2.someothervhost';
+        $file3 = '/tmp/xhprof_unit_test/RUN3.' . 'media-' . $this->_nameSpace;
         touch($file1);
         touch($file2);
+        touch($file3);
         $xhprof = new EC_XHProf($this->_nameSpace, $this->_testDirectory);
         $runs = $xhprof->getRuns();
         $run1Time = strtotime($runs['RUN1']);
+        $run2Time = strtotime($runs['RUN3']);
         $this->assertTrue(($run1Time >= $this->_time) && ($run1Time <= ($this->_time + 1)));
-        $this->assertTrue(count($runs) == 1);
+        $this->assertTrue(($run2Time >= $this->_time) && ($run2Time <= ($this->_time + 1)));
+        $this->assertTrue(count($runs) == 2);
         $xhprof->clear();
         $clear = $xhprof->getRuns();
         $this->assertTrue(empty($clear));

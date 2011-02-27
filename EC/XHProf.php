@@ -84,7 +84,8 @@ class EC_XHProf
                 continue;
             }
 
-            if (!preg_match("!{$this->_namespace}$!", $entry)) {
+            if (!preg_match("!{$this->_namespace}$!", $entry)
+                && !preg_match("!media-{$this->_namespace}$!", $entry)) {
                 continue;
             }
 
@@ -130,6 +131,10 @@ class EC_XHProf
     {
         foreach ($this->_runs as $key => $value) {
             $f = $this->_outputDirectory . '/' . $key . '.' . $this->_namespace;
+            if (!is_readable($f)) {
+                $f = $this->_outputDirectory . '/' . $key . '.media-'
+                     . $this->_namespace;
+            }
             unlink($f);
             unset($this->_runs[$key]);
         }
