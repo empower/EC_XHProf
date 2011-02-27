@@ -16,7 +16,7 @@ directory for examples.</description>
   <active>yes</active>
  </lead>
  <date>2011-02-27</date>
- <time>13:09:01</time>
+ <time>13:12:58</time>
  <version>
   <release>0.1.0</release>
   <api>0.1.0</api>
@@ -43,7 +43,7 @@ directory for examples.</description>
      <file name="XHProfTest.php" role="test" />
     </dir> <!-- /tests/EC -->
    </dir> <!-- /tests -->
-   <file name="README" role="data" />
+   <file name="README" role="doc" />
   </dir> <!-- / -->
  </contents>
  <dependencies>

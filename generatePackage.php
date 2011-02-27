@@ -24,7 +24,7 @@ $packagexml->setOptions(array(
         'examples'  => 'doc'
     ),
     'exceptions' => array(
-        'README.md' => 'doc',
+        'README' => 'doc',
     ),
 ));
 
