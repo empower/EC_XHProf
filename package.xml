@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.9.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>EC_XHProf</name>
+ <channel>empower.github.com/pirum</channel>
+ <summary>EC_XHProf is a simple class for managing XHProf runs.</summary>
+ <description>EC_XHProf is a simple class for managing XHProf runs and storing them according
+to virtual host ServerNames.  You can also clear out runs.  See the examples
+directory for examples.</description>
+ <lead>
+  <name>Bill Shupp</name>
+  <user>shupp</user>
+  <email>hostmaster@shupp.org</email>
+  <active>yes</active>
+ </lead>
+ <date>2011-02-27</date>
+ <time>13:09:01</time>
+ <version>
+  <release>0.1.0</release>
+  <api>0.1.0</api>
+ </version>
+ <stability>
+  <release>alpha</release>
+  <api>alpha</api>
+ </stability>
+ <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
+ <notes>
+* Initial release
+ </notes>
+ <contents>
+  <dir baseinstalldir="/" name="/">
+   <dir name="EC">
+    <file name="XHProf.php" role="php" />
+   </dir> <!-- /EC -->
+   <dir name="examples">
+    <file name="init.php" role="doc" />
+    <file name="list.php" role="doc" />
+   </dir> <!-- /examples -->
+   <dir name="tests">
+    <dir name="EC">
+     <file name="XHProfTest.php" role="test" />
+    </dir> <!-- /tests/EC -->
+   </dir> <!-- /tests -->
+   <file name="README" role="data" />
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.0.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0b1</min>
+   </pearinstaller>
+  </required>
+  <optional>
+   <extension>
+    <name>xhprof</name>
+   </extension>
+  </optional>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.1.0</release>
+    <api>0.1.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2011-02-27</date>
+   <license uri="http://www.opensource.org/licenses/bsd-license.php">New BSD License</license>
+   <notes>
+* Initial release
+   </notes>
+  </release>
+ </changelog>
+</package>
