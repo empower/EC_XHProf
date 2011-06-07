@@ -37,15 +37,15 @@ directory for examples.'
 );
 
 $packagexml->setChannel('empower.github.com/pirum');
-$packagexml->setAPIVersion('0.1.0');
-$packagexml->setReleaseVersion('0.1.0');
+$packagexml->setAPIVersion('0.2.0');
+$packagexml->setReleaseVersion('0.2.0');
 
 $packagexml->setReleaseStability('alpha');
 
 $packagexml->setAPIStability('alpha');
 
 $packagexml->setNotes('
-* Initial release
+* Added support for multiple vhost prefixes
 ');
 $packagexml->setPackageType('php');
 $packagexml->addRelease();

@@ -28,7 +28,7 @@ class EC_XHProfTest extends PHPUnit_Framework_TestCase
         touch($file1);
         touch($file2);
         touch($file3);
-        $xhprof = new EC_XHProf($this->_nameSpace, $this->_testDirectory);
+        $xhprof = new EC_XHProf($this->_nameSpace, $this->_testDirectory, array('media-', 'foobar'));
         $runs = $xhprof->getRuns();
         $run1Time = strtotime($runs['RUN1']);
         $run2Time = strtotime($runs['RUN3']);

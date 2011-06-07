@@ -45,21 +45,32 @@ class EC_XHProf
     protected $_runs = array();
 
     /**
+     * Optional list of prefixes to use, such as media for media-example.com
+     *
+     * @var array
+     */
+    protected $_prefixes = array();
+
+    /**
      * Sets the namespace and output directory, then looks up the runs
      *
      * @param string $namespace       The namespace to filter on.  (vhost)
      * @param string $outputDirectory Optional output directory, used for
      *                                testing
+     * @param string $prefixes        Optional array of additional prefixes
      *
      * @return void
      */
-    public function __construct($namespace, $outputDirectory = null)
+    public function __construct(
+        $namespace, $outputDirectory = null, $prefixes = array()
+    )
     {
         if ($outputDirectory !== null) {
             $this->_outputDirectory = $outputDirectory;
         }
 
         $this->_namespace = $namespace;
+        $this->_prefixes  = $prefixes;
         $this->_lookupRuns();
     }
 
@@ -84,8 +95,7 @@ class EC_XHProf
                 continue;
             }
 
-            if (!preg_match("!{$this->_namespace}$!", $entry)
-                && !preg_match("!media-{$this->_namespace}$!", $entry)) {
+            if (!preg_match("!{$this->_namespace}$!", $entry)) {
                 continue;
             }
 
@@ -131,10 +141,18 @@ class EC_XHProf
     {
         foreach ($this->_runs as $key => $value) {
             $f = $this->_outputDirectory . '/' . $key . '.' . $this->_namespace;
+
             if (!is_readable($f)) {
-                $f = $this->_outputDirectory . '/' . $key . '.media-'
-                     . $this->_namespace;
+                // Try prefixes
+                foreach ($this->_prefixes as $prefix) {
+                    $f = $this->_outputDirectory . '/' . $key . '.'
+                         . $prefix . $this->_namespace;
+                    if (is_readable($f)) {
+                        break;
+                    }
+                }
             }
+
             unlink($f);
             unset($this->_runs[$key]);
         }
